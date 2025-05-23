@@ -17,116 +17,186 @@
   <link href="images/webclip.png" rel="apple-touch-icon">
 </head>
 <body>
-  <div class="hero">
-    <div class="nav-container">
-      <div class="w-container">
+  <section class="header-section">
+    <div class="universal-nav">
+      <div class="nav-container">
         <div class="logo-wrapper">
           <a href="index.html" class="logo w-nav-brand">
             <div class="logo-square"></div>
             Niara
           </a>
         </div>
-        <nav role="navigation" class="nav-menu w-nav-menu">
+        <nav role="navigation" class="nav-links">
           <a href="index.html" class="nav-link">HOME</a>
           <a href="about.html" class="nav-link">ABOUT</a>
           <a href="projects.html" class="nav-link">PROJECTS</a>
         </nav>
-        <div class="menu-button w-nav-button" style="-webkit-user-select: text;" aria-label="menu" role="button" tabindex="0">
+        <div class="nav-button-wrapper">
+          <a href="contact.html" class="contact-button">Contact</a>
+        </div>
+        <div class="menu-button w-nav-button" aria-label="menu" role="button" tabindex="0" id="menuToggle">
           <div class="w-icon-nav-menu"></div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="section">
-    <div class="w-container">
-      <div class="contact-content">
-        <h2 class="section-title">Get in Touch</h2>
-        <div class="contact-grid">
-          <div class="contact-info">
-            <h3>Contact Information</h3>
-            <div class="info-item">
-              <h4>Address</h4>
-              <p>123 Cinema Street<br>Film City, FC 12345<br>United States</p>
-            </div>
-            <div class="info-item">
-              <h4>Phone</h4>
-              <p>+1 (555) 123-4567</p>
-            </div>
-            <div class="info-item">
-              <h4>Email</h4>
-              <p>info@iff2024.com</p>
-            </div>
-            <div class="info-item">
-              <h4>Festival Dates</h4>
-              <p>June 15-22, 2024</p>
-            </div>
-          </div>
-          <div class="contact-form">
-            <h3>Book Your Tickets</h3>
-            <form class="ticket-form">
-              <div class="form-group">
-                <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" required>
-              </div>
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-              </div>
-              <div class="form-group">
-                <label for="phone">Phone</label>
-                <input type="tel" id="phone" name="phone" required>
-              </div>
-              <div class="form-group">
-                <label for="tickets">Number of Tickets</label>
-                <select id="tickets" name="tickets" required>
-                  <option value="">Select number of tickets</option>
-                  <option value="1">1 Ticket</option>
-                  <option value="2">2 Tickets</option>
-                  <option value="3">3 Tickets</option>
-                  <option value="4">4 Tickets</option>
-                  <option value="5">5+ Tickets</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="package">Ticket Package</label>
-                <select id="package" name="package" required>
-                  <option value="">Select a package</option>
-                  <option value="single">Single Day Pass</option>
-                  <option value="weekend">Weekend Pass</option>
-                  <option value="full">Full Festival Pass</option>
-                  <option value="vip">VIP Pass</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="message">Additional Notes</label>
-                <textarea id="message" name="message" rows="4"></textarea>
-              </div>
-              <button type="submit" class="submit-button">Book Tickets</button>
-            </form>
-          </div>
+  </section>
+  <div class="contact-hero-grid">
+    <div class="contact-image-half">
+      <img src="Photo_Assets /_DSC0298.JPG" alt="Contact Visual" class="contact-hero-image" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+    <div class="contact-content-half">
+      <h1 class="contact-title">Contact</h1>
+      <p class="contact-desc centered-desc">The Niara Sena team is available for commercial requests. Please use the form below to get in touch for your specific needs.</p>
+      <div class="centered-form-wrapper">
+        <div class="contact-col centered-form-col">
+          <h3>Commercial Requests</h3>
+          <form class="contact-form elegant-form centered-form" style="display:flex;flex-direction:column;gap:1.5rem;align-items:center;">
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <textarea name="message" placeholder="Message" rows="3" required></textarea>
+            <button type="submit" class="submit-request-btn elegant-btn">
+              <span class="arrow-circle">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#bfa76a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="11"/><path d="M8 12h8M13 8l3 4-3 4"/></svg>
+              </span>
+              <span class="submit-text">SUBMIT REQUEST</span>
+            </button>
+          </form>
         </div>
       </div>
     </div>
   </div>
-  <div class="section highlight-section">
-    <div class="w-container">
-      <h3 class="section-title">Follow Us</h3>
-      <div class="social-grid">
-        <a href="#" class="social-item">
-          <h4>Instagram</h4>
-          <p>@iff2024</p>
-        </a>
-        <a href="#" class="social-item">
-          <h4>Twitter</h4>
-          <p>@iff2024</p>
-        </a>
-        <a href="#" class="social-item">
-          <h4>Facebook</h4>
-          <p>International Film Festival 2024</p>
-        </a>
-      </div>
-    </div>
-  </div>
+  <style>
+    .contact-hero-grid {
+      display: flex;
+      min-height: 100vh;
+    }
+    .contact-image-half {
+      flex: 1;
+      min-width: 0;
+      max-width: 50vw;
+      overflow: hidden;
+    }
+    .contact-hero-image {
+      width: 100%;
+      height: 100vh;
+      object-fit: cover;
+      display: block;
+    }
+    .contact-content-half {
+      flex: 1;
+      background: #fff;
+      padding: 4rem 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-width: 0;
+    }
+    .contact-title {
+      font-size: 3rem;
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+      font-family: 'Georgia', serif;
+    }
+    .contact-desc {
+      font-size: 1.1rem;
+      color: #444;
+      margin-bottom: 2.5rem;
+      max-width: 500px;
+      text-align: left;
+    }
+    .centered-desc {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+    }
+    .centered-form-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+    .centered-form-col {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .centered-form {
+      width: 100%;
+      align-items: center;
+    }
+    .centered-form input, .centered-form textarea {
+      width: 100%;
+      text-align: left;
+    }
+    .elegant-form input, .elegant-form textarea {
+      border: none;
+      border-bottom: 1.5px solid #ccc;
+      border-radius: 0;
+      font-size: 1.1rem;
+      padding: 0.5rem 0;
+      background: transparent;
+      font-family: 'Georgia', serif;
+      color: #222;
+      transition: border-color 0.2s;
+    }
+    .elegant-form input:focus, .elegant-form textarea:focus {
+      outline: none;
+      border-bottom: 1.5px solid #bfa76a;
+    }
+    .elegant-form textarea {
+      resize: none;
+      min-height: 2.5em;
+      max-height: 6em;
+    }
+    .elegant-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: none;
+      border: none;
+      color: #bfa76a;
+      font-size: 1.1rem;
+      font-family: 'Georgia', serif;
+      font-weight: 500;
+      cursor: pointer;
+      padding: 0.5rem 0 0.5rem 0;
+      margin-top: 0.5rem;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+    .elegant-btn:hover .submit-text {
+      color: #222;
+    }
+    .arrow-circle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.2em;
+      height: 2.2em;
+      border: 1.5px solid #bfa76a;
+      border-radius: 50%;
+      margin-right: 0.5em;
+      background: none;
+    }
+    .submit-text {
+      color: #bfa76a;
+      font-size: 1.1rem;
+      font-family: 'Georgia', serif;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+    @media (max-width: 900px) {
+      .contact-hero-grid { flex-direction: column; }
+      .contact-image-half, .contact-content-half { max-width: 100vw; }
+      .contact-content-half { padding: 2rem 1rem; }
+    }
+  </style>
   <!-- Footer -->
   <footer class="simple-footer">
     <div class="footer-container">
@@ -166,8 +236,7 @@
           <a href="index.html" class="footer-link">HOME</a>
           <a href="about.html" class="footer-link">ABOUT</a>
           <a href="projects.html" class="footer-link">WORKS</a>
-          <a href="#" class="footer-link">CONTACT</a>
-          <a href="#" class="footer-link">BLOG</a>
+          <a href="contact.html" class="footer-link">CONTACT</a>
         </div>
       </div>
     </div>
