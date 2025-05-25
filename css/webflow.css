@@ -1434,6 +1434,46 @@ textarea.w-select {
   .w-lightbox-control:hover {
     opacity: 1;
   }
+  .nav-link.mobile-contact {
+    display: none !important;
+  }
+}
+@media (max-width: 767px) {
+  .w-lightbox-content {
+    height: 96vh;
+    margin-top: 2vh;
+  }
+  .w-lightbox-view,
+  .w-lightbox-view:before {
+    height: 96vh;
+  }
+  /* .w-lightbox-content */
+  .w-lightbox-group,
+  .w-lightbox-group .w-lightbox-view,
+  .w-lightbox-group .w-lightbox-view:before {
+    height: 84vh;
+  }
+  .w-lightbox-image {
+    max-width: 96vw;
+    max-height: 96vh;
+  }
+  .w-lightbox-group .w-lightbox-image {
+    max-width: 82.3vw;
+    max-height: 84vh;
+  }
+  .w-lightbox-left,
+  .w-lightbox-right {
+    display: block;
+  }
+  .w-lightbox-close {
+    opacity: 0.8;
+  }
+  .w-lightbox-control:hover {
+    opacity: 1;
+  }
+  .nav-link.mobile-contact {
+    display: block !important;
+  }
 }
 .w-lightbox-inactive,
 .w-lightbox-inactive:hover {
