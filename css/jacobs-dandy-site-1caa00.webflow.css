@@ -3568,10 +3568,23 @@ img {
 }
 @media screen and (max-width: 767px) {
   .mobile-contact {
-    display: block;
-  }
-  .contact-button {
-    display: none !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 90%;
+    max-width: 240px;
+    margin: 0 0 20px 0;
+    background: #18192a;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    padding: 18px 0;
+    color: #fff;
+    border: none;
+    box-shadow: none;
+    transition: background 0.2s, color 0.2s;
   }
 }
 
@@ -3618,6 +3631,12 @@ img {
   #slide4 {
     background-size: cover !important;
     background-position: center top !important;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .contact-button {
+    display: none !important;
   }
 }
 
