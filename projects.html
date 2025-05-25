@@ -850,6 +850,42 @@
                 }
             });
             // --- End Video Modal for HARRIS WATER MAIN & SEWER CONTRACTORS ---
+
+            // Utility function to stop iframe video playback
+            function stopIframeVideo(modalId) {
+                const modal = document.getElementById(modalId);
+                if (!modal) return;
+                const iframe = modal.querySelector('iframe');
+                if (iframe) {
+                    const src = iframe.src;
+                    iframe.src = src; // Reset src to stop playback
+                }
+            }
+
+            // Add event listeners to all video modal close buttons
+            const videoModalIds = [
+                'video-modal',
+                'video-modal-acquiescence',
+                'video-modal-oober',
+                'video-modal-qolj',
+                'video-modal-lovelorn',
+                'video-modal-evolution',
+                'video-modal-harris'
+            ];
+            videoModalIds.forEach(function(modalId) {
+                const modal = document.getElementById(modalId);
+                if (!modal) return;
+                const closeButton = modal.querySelector('.close-button');
+                closeButton && closeButton.addEventListener('click', function() {
+                    stopIframeVideo(modalId);
+                });
+                // Also stop video if clicking the modal backdrop
+                modal.addEventListener('click', function(event) {
+                    if (event.target === modal) {
+                        stopIframeVideo(modalId);
+                    }
+                });
+            });
         });
     </script>
 
