@@ -201,7 +201,7 @@
                          data-short-description="A dance film exploring the evolution of womanhood through movement and expression."
                          data-category="Short Film" 
                          data-duration="7 min">
-                                                <div class="project-thumbnail">
+                        <div class="project-thumbnail">
                           <img src="Thumb_Nail/Evolution of Wombmanhood-Dance.png" alt="Evolution of Wombmanhood (Dance)">
                           <div class="project-overlay">
                             <div class="project-info">
@@ -209,7 +209,7 @@
                               <p>Short Film</p>
                               <span class="duration">7 min</span>
                             </div>
- 
+                            <a href="#" class="watch-button">Watch</a>
                           </div>
                         </div>
                     </div>
@@ -221,18 +221,17 @@
                          data-short-description="" 
                          data-category="Short Film" 
                          data-duration="6 min">
-                        <a href="https://drive.google.com/file/d/1pIzORzkHrnr_2wxuB5sPFbwv-CGqo8s3/view?usp=sharing" target="_blank" style="display:block;">
-                          <div class="project-thumbnail">
-                            <img src="Thumb_Nail/Screenshot 2025-04-26 at 1.29.44 PM.png" alt="Evolution of Wombmanhood (Production)">
-                            <div class="project-overlay">
-                              <div class="project-info">
-                                <h3>Evolution of Wombmanhood (Production)</h3>
-                                <p>Short Film</p>
-                                <span class="duration">6 min</span>
-                              </div>
+                        <div class="project-thumbnail">
+                          <img src="Thumb_Nail/Screenshot 2025-04-26 at 1.29.44 PM.png" alt="Evolution of Wombmanhood (Production)">
+                          <div class="project-overlay">
+                            <div class="project-info">
+                              <h3>Evolution of Wombmanhood (Production)</h3>
+                              <p>Short Film</p>
+                              <span class="duration">6 min</span>
                             </div>
+                            <a href="#" class="watch-button">Watch</a>
                           </div>
-                        </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -798,30 +797,48 @@
             });
             // --- End Video Modal for LOVELORN ---
 
-            // --- Video Modal for EVOLUTION OF WOMbMANHOOD ---
-            const videoModalEvolution = document.getElementById('video-modal-evolution');
-            const videoModalEvolutionClose = document.getElementById('video-modal-evolution-close');
-            const evolutionProjectCard = Array.from(document.querySelectorAll('.project-card')).find(card => card.dataset.projectId === 'evolution-of-wombmanhood');
+            // --- Video Modal for EVOLUTION OF WOMbMANHOOD (DANCE) ---
+            const videoModalEvolutionDance = document.getElementById('video-modal-evolution-dance');
+            const videoModalEvolutionDanceClose = document.getElementById('video-modal-evolution-dance-close');
+            const evolutionDanceProjectCard = Array.from(document.querySelectorAll('.project-card')).find(card => card.dataset.projectId === 'evolution-of-wombmanhood');
+            const evolutionDanceWatchButton = evolutionDanceProjectCard?.querySelector('.watch-button');
+            
+            if (evolutionDanceWatchButton) {
+                evolutionDanceWatchButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    console.log('Evolution Dance watch button clicked!');
+                    videoModalEvolutionDance.classList.add('active');
+                    console.log('Dance Modal should be active now');
+                });
+            }
+            
+            videoModalEvolutionDanceClose.addEventListener('click', function() {
+                videoModalEvolutionDance.classList.remove('active');
+            });
+            
+            videoModalEvolutionDance.addEventListener('click', function(event) {
+                if (event.target === videoModalEvolutionDance) {
+                    videoModalEvolutionDance.classList.remove('active');
+                }
+            });
+            // --- End Video Modal for EVOLUTION OF WOMbMANHOOD (DANCE) ---
+
+            // --- Video Modal for EVOLUTION OF WOMbMANHOOD (PRODUCTION) ---
+            const videoModalEvolutionProduction = document.getElementById('video-modal-evolution-production');
+            const videoModalEvolutionProductionClose = document.getElementById('video-modal-evolution-production-close');
             const evolutionProductionProjectCard = Array.from(document.querySelectorAll('.project-card')).find(card => card.dataset.projectId === 'evolution-of-wombmanhood-production');
-            const evolutionWatchButton = evolutionProductionProjectCard?.querySelector('.watch-button');
+            const evolutionProductionWatchButton = evolutionProductionProjectCard?.querySelector('.watch-button');
             
             function isEvolutionFeatured() {
                 return featuredTitle.textContent.trim().replace(/\s+/g, '').toLowerCase() === 'evolutionofwombmanhood';
             }
             
-            if (evolutionProjectCard) {
-                evolutionProjectCard.addEventListener('click', function(e) {
+            if (evolutionProductionWatchButton) {
+                evolutionProductionWatchButton.addEventListener('click', function(e) {
                     e.preventDefault();
-                    videoModalEvolution.classList.add('active');
-                });
-            }
-            
-            if (evolutionWatchButton) {
-                evolutionWatchButton.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    console.log('Evolution watch button clicked!');
-                    videoModalEvolution.classList.add('active');
-                    console.log('Modal should be active now');
+                    console.log('Evolution Production watch button clicked!');
+                    videoModalEvolutionProduction.classList.add('active');
+                    console.log('Production Modal should be active now');
                 });
             }
             
@@ -829,21 +846,21 @@
                 featuredWatchButton.addEventListener('click', function(e) {
                     if (isEvolutionFeatured()) {
                         e.preventDefault();
-                        videoModalEvolution.classList.add('active');
+                        videoModalEvolutionProduction.classList.add('active');
                     }
                 });
             }
             
-            videoModalEvolutionClose.addEventListener('click', function() {
-                videoModalEvolution.classList.remove('active');
+            videoModalEvolutionProductionClose.addEventListener('click', function() {
+                videoModalEvolutionProduction.classList.remove('active');
             });
             
-            videoModalEvolution.addEventListener('click', function(event) {
-                if (event.target === videoModalEvolution) {
-                    videoModalEvolution.classList.remove('active');
+            videoModalEvolutionProduction.addEventListener('click', function(event) {
+                if (event.target === videoModalEvolutionProduction) {
+                    videoModalEvolutionProduction.classList.remove('active');
                 }
             });
-            // --- End Video Modal for EVOLUTION OF WOMbMANHOOD ---
+            // --- End Video Modal for EVOLUTION OF WOMbMANHOOD (PRODUCTION) ---
 
             // --- Video Modal for HARRIS WATER MAIN & SEWER CONTRACTORS ---
             const videoModalHarris = document.getElementById('video-modal-harris');
@@ -903,7 +920,8 @@
                 'video-modal-oober',
                 'video-modal-qolj',
                 'video-modal-lovelorn',
-                'video-modal-evolution',
+                'video-modal-evolution-dance',
+                'video-modal-evolution-production',
                 'video-modal-harris'
             ];
             videoModalIds.forEach(function(modalId) {
@@ -983,10 +1001,18 @@
       </div>
     </div>
 
-    <!-- Video Modal for EVOLUTION OF WOMbMANHOOD -->
-    <div id="video-modal-evolution" class="modal" style="display: none;">
+    <!-- Video Modal for EVOLUTION OF WOMbMANHOOD (DANCE) -->
+    <div id="video-modal-evolution-dance" class="modal" style="display: none;">
       <div class="modal-content" style="max-width: 800px; padding: 0; background: #000;">
-        <span class="close-button" id="video-modal-evolution-close">&times;</span>
+        <span class="close-button" id="video-modal-evolution-dance-close">&times;</span>
+        <iframe src="https://drive.google.com/file/d/14B_1sVjwlAsDkMF4HxPp9XZK4zWGTtFE/embed" width="100%" height="480" allow="autoplay" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <!-- Video Modal for EVOLUTION OF WOMbMANHOOD (PRODUCTION) -->
+    <div id="video-modal-evolution-production" class="modal" style="display: none;">
+      <div class="modal-content" style="max-width: 800px; padding: 0; background: #000;">
+        <span class="close-button" id="video-modal-evolution-production-close">&times;</span>
         <iframe src="https://drive.google.com/file/d/1c2UvmCF1D0Y3ULma6Ra1N9tV9NxY_Fe0/embed" width="100%" height="480" allow="autoplay" frameborder="0" allowfullscreen></iframe>
       </div>
     </div>
