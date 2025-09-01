@@ -802,15 +802,27 @@
             const videoModalEvolution = document.getElementById('video-modal-evolution');
             const videoModalEvolutionClose = document.getElementById('video-modal-evolution-close');
             const evolutionProjectCard = Array.from(document.querySelectorAll('.project-card')).find(card => card.dataset.projectId === 'evolution-of-wombmanhood');
+            const evolutionProductionProjectCard = Array.from(document.querySelectorAll('.project-card')).find(card => card.dataset.projectId === 'evolution-of-wombmanhood-production');
+            const evolutionWatchButton = evolutionProductionProjectCard?.querySelector('.watch-button');
+            
             function isEvolutionFeatured() {
                 return featuredTitle.textContent.trim().replace(/\s+/g, '').toLowerCase() === 'evolutionofwombmanhood';
             }
+            
             if (evolutionProjectCard) {
                 evolutionProjectCard.addEventListener('click', function(e) {
                     e.preventDefault();
                     videoModalEvolution.classList.add('active');
                 });
             }
+            
+            if (evolutionWatchButton) {
+                evolutionWatchButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    videoModalEvolution.classList.add('active');
+                });
+            }
+            
             if (featuredWatchButton) {
                 featuredWatchButton.addEventListener('click', function(e) {
                     if (isEvolutionFeatured()) {
@@ -819,9 +831,11 @@
                     }
                 });
             }
+            
             videoModalEvolutionClose.addEventListener('click', function() {
                 videoModalEvolution.classList.remove('active');
             });
+            
             videoModalEvolution.addEventListener('click', function(event) {
                 if (event.target === videoModalEvolution) {
                     videoModalEvolution.classList.remove('active');
