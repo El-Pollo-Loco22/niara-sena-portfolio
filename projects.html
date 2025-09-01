@@ -195,21 +195,22 @@
                     </div>
                     <div class="project-card" 
                          data-project-id="evolution-of-wombmanhood"
-                         data-background="images/short4.jpg" 
+                         data-background="images/photo-1441716844725-09cedc13a4e7-p-500x331.jpeg" 
                          data-title="Evolution of Wombmanhood (Dance)" 
-                         data-description="" 
-                         data-short-description="" 
+                         data-description="A dance film exploring the evolution of womanhood through movement and expression." 
+                         data-short-description="A dance film exploring the evolution of womanhood through movement and expression."
                          data-category="Short Film" 
                          data-duration="7 min">
-                        <div class="project-thumbnail">
-                            <img src="Thumb_Nail/Evolution of Wombmanhood-Dance.png" alt="Evolution of Wombmanhood (Dance)">
-                            <div class="project-overlay">
-                                <div class="project-info">
-                                    <h3>Evolution of Wombmanhood (Dance)</h3>
-                                    <p>Short Film</p>
-                                    <span class="duration">7 min</span>
-                                </div>
+                                                <div class="project-thumbnail">
+                          <img src="Thumb_Nail/Evolution of Wombmanhood-Dance.png" alt="Evolution of Wombmanhood (Dance)">
+                          <div class="project-overlay">
+                            <div class="project-info">
+                              <h3>Evolution of Wombmanhood (Dance)</h3>
+                              <p>Short Film</p>
+                              <span class="duration">7 min</span>
                             </div>
+ 
+                          </div>
                         </div>
                     </div>
                     <div class="project-card" 
@@ -274,15 +275,15 @@
                          data-description="An inspiring campaign showcasing athletes pushing boundaries and chasing their dreams against all odds." 
                          data-short-description="An inspiring campaign about pushing boundaries."
                          data-year="2023" 
-                         data-category="Sports Commercial" 
-                         data-duration="60 sec">
+                         data-category="Commercial" 
+                         data-duration="5 min">
                         <div class="project-thumbnail">
                             <img src="Thumb_Nail/unnamed (4).png" alt="HARRIS WATER MAIN & SEWER CONTRACTORS">
                             <div class="project-overlay">
                                 <div class="project-info">
                                     <h3>HARRIS WATER MAIN & SEWER CONTRACTORS</h3>
-                                    <p>Sports Commercial, 2023</p>
-                                    <span class="duration">60 sec</span>
+                                    <p>Commercial, 2023</p>
+                                    <span class="duration">5 min</span>
                                 </div>
                             </div>
                         </div>
@@ -800,17 +801,14 @@
             // --- Video Modal for EVOLUTION OF WOMbMANHOOD ---
             const videoModalEvolution = document.getElementById('video-modal-evolution');
             const videoModalEvolutionClose = document.getElementById('video-modal-evolution-close');
-            const evolutionVideo = document.getElementById('evolution-video');
-            const evolutionWatchButton = Array.from(document.querySelectorAll('.project-card')).find(card => card.dataset.projectId === 'evolution-of-wombmanhood')?.querySelector('.watch-button');
+            const evolutionProjectCard = Array.from(document.querySelectorAll('.project-card')).find(card => card.dataset.projectId === 'evolution-of-wombmanhood');
             function isEvolutionFeatured() {
                 return featuredTitle.textContent.trim().replace(/\s+/g, '').toLowerCase() === 'evolutionofwombmanhood';
             }
-            if (evolutionWatchButton) {
-                evolutionWatchButton.addEventListener('click', function(e) {
+            if (evolutionProjectCard) {
+                evolutionProjectCard.addEventListener('click', function(e) {
                     e.preventDefault();
                     videoModalEvolution.classList.add('active');
-                    evolutionVideo.currentTime = 0;
-                    evolutionVideo.play();
                 });
             }
             if (featuredWatchButton) {
@@ -818,21 +816,15 @@
                     if (isEvolutionFeatured()) {
                         e.preventDefault();
                         videoModalEvolution.classList.add('active');
-                        evolutionVideo.currentTime = 0;
-                        evolutionVideo.play();
                     }
                 });
             }
             videoModalEvolutionClose.addEventListener('click', function() {
                 videoModalEvolution.classList.remove('active');
-                evolutionVideo.pause();
-                evolutionVideo.currentTime = 0;
             });
             videoModalEvolution.addEventListener('click', function(event) {
                 if (event.target === videoModalEvolution) {
                     videoModalEvolution.classList.remove('active');
-                    evolutionVideo.pause();
-                    evolutionVideo.currentTime = 0;
                 }
             });
             // --- End Video Modal for EVOLUTION OF WOMbMANHOOD ---
@@ -979,7 +971,7 @@
     <div id="video-modal-evolution" class="modal">
       <div class="modal-content" style="max-width: 800px; padding: 0; background: #000;">
         <span class="close-button" id="video-modal-evolution-close">&times;</span>
-        <iframe src="https://drive.google.com/file/d/14B_1sVjwlAsDkMF4HxPp9XZK4zWGTtFE/preview" width="100%" height="480" allow="autoplay"></iframe>
+        <iframe src="https://drive.google.com/file/d/14B_1sVjwlAsDkMF4HxPp9XZK4zWGTtFE/preview" width="100%" height="480" allow="autoplay" frameborder="0" allowfullscreen></iframe>
       </div>
     </div>
 
