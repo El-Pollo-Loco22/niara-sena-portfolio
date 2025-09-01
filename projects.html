@@ -800,14 +800,7 @@
             const videoModalEvolutionDanceClose = document.getElementById('video-modal-evolution-dance-close');
             const evolutionDanceProjectCard = Array.from(document.querySelectorAll('.project-card')).find(card => card.dataset.projectId === 'evolution-of-wombmanhood');
             
-            if (evolutionDanceProjectCard) {
-                evolutionDanceProjectCard.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    console.log('Evolution Dance card clicked!');
-                    videoModalEvolutionDance.classList.add('active');
-                    console.log('Dance Modal should be active now');
-                });
-            }
+            // Evolution Dance card click is disabled - only WATCH button should trigger video
             
             videoModalEvolutionDanceClose.addEventListener('click', function() {
                 videoModalEvolutionDance.classList.remove('active');
@@ -826,23 +819,25 @@
             const evolutionProductionProjectCard = Array.from(document.querySelectorAll('.project-card')).find(card => card.dataset.projectId === 'evolution-of-wombmanhood-production');
             
             function isEvolutionFeatured() {
-                return featuredTitle.textContent.trim().replace(/\s+/g, '').toLowerCase() === 'evolutionofwombmanhood';
+                const title = featuredTitle.textContent.trim().replace(/\s+/g, '').toLowerCase();
+                return title === 'evolutionofwombmanhood' || title === 'evolutionofwombmanhood(dance)' || title === 'evolutionofwombmanhood(production)';
             }
             
-            if (evolutionProductionProjectCard) {
-                evolutionProductionProjectCard.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    console.log('Evolution Production card clicked!');
-                    videoModalEvolutionProduction.classList.add('active');
-                    console.log('Production Modal should be active now');
-                });
-            }
+            // Evolution Production card click is disabled - only WATCH button should trigger video
             
             if (featuredWatchButton) {
                 featuredWatchButton.addEventListener('click', function(e) {
                     if (isEvolutionFeatured()) {
                         e.preventDefault();
-                        videoModalEvolutionProduction.classList.add('active');
+                        const title = featuredTitle.textContent.trim().replace(/\s+/g, '').toLowerCase();
+                        if (title.includes('dance')) {
+                            videoModalEvolutionDance.classList.add('active');
+                        } else if (title.includes('production')) {
+                            videoModalEvolutionProduction.classList.add('active');
+                        } else {
+                            // Default to production if neither dance nor production is specified
+                            videoModalEvolutionProduction.classList.add('active');
+                        }
                     }
                 });
             }
